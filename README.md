@@ -104,6 +104,7 @@ npm start
 ## 📸 **UI Preview**
 
 ![Home Page](./screenshots/homepage1.png)
+![Home Page](./screenshots/homepage2.png)
 ```
 
 ---
