@@ -103,12 +103,7 @@ npm start
 
 ## 📸 **UI Preview**
 
-*(Add your screenshots here — the one you showed me of the homepage)*
-
-Example:
-
-```
-![Homepage Screenshot](./screenshots/homepage.png)
+![Home Page](./screenshots/homepage1.png)
 ```
 
 ---
