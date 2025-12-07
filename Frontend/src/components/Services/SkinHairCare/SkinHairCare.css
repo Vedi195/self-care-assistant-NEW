@@ -5,23 +5,99 @@
   min-height: 70vh;
 }
 
-.care-header {
+/* ---------------------------
+   Pre-quiz card selection UI
+   --------------------------- */
+.skin-hair-care .pre-quiz {
+  text-align: center;
+  padding: 20px 0 10px;
+}
+
+.skin-hair-care .pre-quiz-title {
+  font-size: 1.6rem;
+  margin-bottom: 18px;
+  color: #333;
+}
+
+.skin-hair-care .pre-quiz-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  align-items: stretch;
+  margin-bottom: 12px;
+  padding: 0 10px;
+}
+
+.skin-hair-care .quiz-card {
+  background: #ffffff;
+  border: 2px solid #e83e8c;
+  border-radius: 16px;
+  padding: 22px;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(232, 62, 140, 0.06);
+  transition: transform 0.28s ease, box-shadow 0.28s ease, background-color 0.28s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skin-hair-care .quiz-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(232, 62, 140, 0.12);
+  background: #fff4f8; /* subtle pink */
+}
+
+.skin-hair-care .quiz-card .quiz-card-icon {
+  font-size: 2.2rem;
+  color: #e83e8c;
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: rgba(232, 62, 140, 0.06);
+}
+
+.skin-hair-care .quiz-card h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #333;
+  font-weight: 700;
+}
+
+.skin-hair-care .quiz-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.skin-hair-care .pre-quiz-note {
+  margin-top: 12px;
+  color: #777;
+}
+
+/* ---------------------------
+   Header + nav (kept original)
+   --------------------------- */
+.skin-hair-care .care-header {
   text-align: center;
   margin-bottom: 30px;
 }
 
-.care-header h1 {
+.skin-hair-care .care-header h1 {
   font-size: 2.5rem;
   color: #333;
   margin-bottom: 10px;
 }
 
-.care-header p {
+.skin-hair-care .care-header p {
   font-size: 1.2rem;
   color: #666;
 }
 
-.care-nav {
+.skin-hair-care .care-nav {
   display: flex;
   justify-content: center;
   gap: 10px;
@@ -29,7 +105,7 @@
   flex-wrap: wrap;
 }
 
-.care-nav button {
+.skin-hair-care .care-nav button {
   padding: 12px 24px;
   border: 2px solid #e83e8c;
   background: white;
@@ -41,26 +117,26 @@
   font-size: 1rem;
 }
 
-.care-nav button.active,
-.care-nav button:hover {
+.skin-hair-care .care-nav button.active,
+.skin-hair-care .care-nav button:hover {
   background: #e83e8c;
   color: white;
 }
 
 /* Main View */
-.main-view {
+.skin-hair-care .main-view {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-.feature-cards {
+.skin-hair-care .feature-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 30px;
 }
 
-.feature-card {
+.skin-hair-care .feature-card {
   background: white;
   padding: 40px 30px;
   border-radius: 20px;
@@ -71,50 +147,50 @@
   border: 1px solid #f0f0f0;
 }
 
-.feature-card:hover {
+.skin-hair-care .feature-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.feature-icon {
+.skin-hair-care .feature-icon {
   font-size: 3rem;
   margin-bottom: 20px;
 }
 
-.feature-card h3 {
+.skin-hair-care .feature-card h3 {
   font-size: 1.5rem;
   color: #333;
   margin-bottom: 15px;
   font-weight: 600;
 }
 
-.feature-card p {
+.skin-hair-care .feature-card p {
   font-size: 1.1rem;
   color: #666;
   line-height: 1.6;
 }
 
-.daily-tips {
+.skin-hair-care .daily-tips {
   background: white;
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.daily-tips h3 {
+.skin-hair-care .daily-tips h3 {
   font-size: 1.8rem;
   color: #333;
   margin-bottom: 25px;
   text-align: center;
 }
 
-.tips-grid {
+.skin-hair-care .tips-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
-.tip-card {
+.skin-hair-care .tip-card {
   background: #f8f9fa;
   padding: 25px;
   border-radius: 15px;
@@ -123,30 +199,30 @@
   transition: transform 0.2s ease;
 }
 
-.tip-card:hover {
+.skin-hair-care .tip-card:hover {
   transform: translateY(-3px);
 }
 
-.tip-icon {
+.skin-hair-care .tip-icon {
   font-size: 2.5rem;
   margin-bottom: 15px;
 }
 
-.tip-card h4 {
+.skin-hair-care .tip-card h4 {
   font-size: 1.2rem;
   color: #333;
   margin-bottom: 10px;
   font-weight: 600;
 }
 
-.tip-card p {
+.skin-hair-care .tip-card p {
   font-size: 0.95rem;
   color: #666;
   line-height: 1.6;
   margin-bottom: 15px;
 }
 
-.tip-card button {
+.skin-hair-care .tip-card button {
   background: #e83e8c;
   color: white;
   border: none;
@@ -158,29 +234,29 @@
   transition: background-color 0.3s ease;
 }
 
-.tip-card button:hover {
+.skin-hair-care .tip-card button:hover {
   background: #dc3277;
 }
 
 /* Quiz View */
-.quiz-view {
+.skin-hair-care .quiz-view {
   max-width: 800px;
   margin: 0 auto;
 }
 
-.quiz-container {
+.skin-hair-care .quiz-container {
   background: white;
   padding: 40px;
   border-radius: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.quiz-progress {
+.skin-hair-care .quiz-progress {
   margin-bottom: 30px;
   text-align: center;
 }
 
-.progress-bar {
+.skin-hair-care .progress-bar {
   width: 100%;
   height: 8px;
   background: #e9ecef;
@@ -189,36 +265,36 @@
   overflow: hidden;
 }
 
-.progress-fill {
+.skin-hair-care .progress-fill {
   height: 100%;
   background: linear-gradient(90deg, #e83e8c, #f06292);
   transition: width 0.3s ease;
 }
 
-.quiz-progress span {
+.skin-hair-care .quiz-progress span {
   font-size: 1rem;
   color: #666;
   font-weight: 600;
 }
 
-.question-card {
+.skin-hair-care .question-card {
   text-align: center;
 }
 
-.question-card h3 {
+.skin-hair-care .question-card h3 {
   font-size: 1.5rem;
   color: #333;
   margin-bottom: 30px;
   line-height: 1.4;
 }
 
-.options {
+.skin-hair-care .options {
   display: grid;
   grid-template-columns: 1fr;
   gap: 15px;
 }
 
-.option-btn {
+.skin-hair-care .option-btn {
   padding: 20px;
   border: 2px solid #e9ecef;
   background: white;
@@ -229,14 +305,14 @@
   text-align: left;
 }
 
-.option-btn:hover {
+.skin-hair-care .option-btn:hover {
   border-color: #e83e8c;
   background: #fdf2f8;
   transform: translateY(-2px);
 }
 
 /* Results View */
-.results-container {
+.skin-hair-care .results-container {
   background: white;
   padding: 40px;
   border-radius: 20px;
@@ -244,20 +320,20 @@
   text-align: center;
 }
 
-.results-container h2 {
+.skin-hair-care .results-container h2 {
   font-size: 2.2rem;
   color: #333;
   margin-bottom: 30px;
 }
 
-.profile-summary {
+.skin-hair-care .profile-summary {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
   margin-bottom: 40px;
 }
 
-.profile-item {
+.skin-hair-care .profile-item {
   background: #f8f9fa;
   padding: 20px;
   border-radius: 15px;
@@ -265,21 +341,21 @@
   text-align: left;
 }
 
-.profile-item strong {
+.skin-hair-care .profile-item strong {
   color: #e83e8c;
   display: block;
   margin-bottom: 8px;
   font-size: 1.1rem;
 }
 
-.recommendations {
+.skin-hair-care .recommendations {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 25px;
   margin-bottom: 30px;
 }
 
-.recommendation-card {
+.skin-hair-care .recommendation-card {
   background: #f8f9fa;
   padding: 25px;
   border-radius: 15px;
@@ -288,23 +364,23 @@
   transition: transform 0.2s ease;
 }
 
-.recommendation-card:hover {
+.skin-hair-care .recommendation-card:hover {
   transform: translateY(-3px);
 }
 
-.recommendation-card h4 {
+.skin-hair-care .recommendation-card h4 {
   color: #e83e8c;
   font-size: 1.3rem;
   margin-bottom: 15px;
 }
 
-.recommendation-card p {
+.skin-hair-care .recommendation-card p {
   color: #666;
   line-height: 1.6;
   margin-bottom: 15px;
 }
 
-.recommendation-card button {
+.skin-hair-care .recommendation-card button {
   background: #e83e8c;
   color: white;
   border: none;
@@ -315,11 +391,11 @@
   transition: background-color 0.3s ease;
 }
 
-.recommendation-card button:hover {
+.skin-hair-care .recommendation-card button:hover {
   background: #dc3277;
 }
 
-.retry-btn {
+.skin-hair-care .retry-btn {
   background: #e83e8c;
   color: white;
   border: none;
@@ -331,26 +407,26 @@
   transition: background-color 0.3s ease;
 }
 
-.retry-btn:hover {
+.skin-hair-care .retry-btn:hover {
   background: #dc3277;
 }
 
-
-.routines-view {
+/* Routines View (kept) */
+.skin-hair-care .routines-view {
   padding: 20px;
 }
 
-.select-group {
+.skin-hair-care .select-group {
   margin-bottom: 20px;
 }
 
-.select-group label {
+.skin-hair-care .select-group label {
   font-weight: bold;
   display: block;
   margin-bottom: 5px;
 }
 
-.select-group select {
+.skin-hair-care .select-group select {
   width: 100%;
   padding: 10px;
   border-radius: 8px;
@@ -358,7 +434,7 @@
   font-size: 16px;
 }
 
-.routine-card {
+.skin-hair-care .routine-card {
   background: #ffffff;
   padding: 20px;
   border-radius: 12px;
@@ -366,42 +442,40 @@
   margin-top: 20px;
 }
 
-.routine-card h3 {
+.skin-hair-care .routine-card h3 {
   margin-bottom: 10px;
 }
 
-.routine-card h4 {
+.skin-hair-care .routine-card h4 {
   margin-top: 15px;
   color: #444;
 }
 
-.routine-card ul {
+.skin-hair-care .routine-card ul {
   padding-left: 20px;
   margin-top: 5px;
 }
 
-
-
 /* Organic View */
-.organic-view {
+.skin-hair-care .organic-view {
   max-width: 1200px;
   margin: 0 auto;
 }
 
-.organic-view h2 {
+.skin-hair-care .organic-view h2 {
   text-align: center;
   font-size: 2rem;
   color: #333;
   margin-bottom: 40px;
 }
 
-.remedies-grid {
+.skin-hair-care .remedies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 30px;
 }
 
-.remedy-card {
+.skin-hair-care .remedy-card {
   background: white;
   padding: 30px;
   border-radius: 20px;
@@ -410,60 +484,60 @@
   transition: transform 0.2s ease;
 }
 
-.remedy-card:hover {
+.skin-hair-care .remedy-card:hover {
   transform: translateY(-5px);
 }
 
-.remedy-card h3 {
+.skin-hair-care .remedy-card h3 {
   color: #e83e8c;
   font-size: 1.4rem;
   margin-bottom: 10px;
 }
 
-.remedy-purpose {
+.skin-hair-care .remedy-purpose {
   color: #666;
   font-style: italic;
   margin-bottom: 20px;
   font-size: 1rem;
 }
 
-.remedy-details {
+.skin-hair-care .remedy-details {
   margin-bottom: 20px;
 }
 
-.ingredients,
-.instructions,
-.benefits {
+.skin-hair-care .ingredients,
+.skin-hair-care .instructions,
+.skin-hair-care .benefits {
   margin-bottom: 15px;
 }
 
-.ingredients strong,
-.instructions strong,
-.benefits strong {
+.skin-hair-care .ingredients strong,
+.skin-hair-care .instructions strong,
+.skin-hair-care .benefits strong {
   color: #333;
   display: block;
   margin-bottom: 8px;
   font-size: 1rem;
 }
 
-.ingredients ul {
+.skin-hair-care .ingredients ul {
   margin: 0;
   padding-left: 20px;
 }
 
-.ingredients li {
+.skin-hair-care .ingredients li {
   color: #666;
   margin-bottom: 4px;
 }
 
-.instructions p,
-.benefits p {
+.skin-hair-care .instructions p,
+.skin-hair-care .benefits p {
   color: #666;
   line-height: 1.6;
   margin: 0;
 }
 
-.remedy-card button {
+.skin-hair-care .remedy-card button {
   background: #e83e8c;
   color: white;
   border: none;
@@ -474,36 +548,34 @@
   transition: background-color 0.3s ease;
 }
 
-.remedy-card button:hover {
+.skin-hair-care .remedy-card button:hover {
   background: #dc3277;
 }
 
-/* Chat View */
-
-.message-actions {
+/* Chat View (kept) */
+.skin-hair-care .message-actions {
   display: inline-flex;
   gap: 0.5rem;
   margin-left: 1rem;
   font-size: 0.9rem;
 }
 
-.message-actions button {
+.skin-hair-care .message-actions button {
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.message-actions button:hover {
+.skin-hair-care .message-actions button:hover {
   transform: scale(1.2);
 }
 
-
-.chat-view {
+.skin-hair-care .chat-view {
   max-width: 800px;
   margin: 0 auto;
 }
 
-.chat-container {
+.skin-hair-care .chat-container {
   background: white;
   border-radius: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -513,7 +585,7 @@
   flex-direction: column;
 }
 
-.chat-messages {
+.skin-hair-care .chat-messages {
   flex-grow: 1;
   padding: 20px;
   overflow-y: auto;
@@ -522,20 +594,20 @@
   gap: 15px;
 }
 
-.message {
+.skin-hair-care .message {
   display: flex;
   max-width: 80%;
 }
 
-.message.user {
+.skin-hair-care .message.user {
   align-self: flex-end;
 }
 
-.message.bot {
+.skin-hair-care .message.bot {
   align-self: flex-start;
 }
 
-.message-content {
+.skin-hair-care .message-content {
   background: #f8f9fa;
   padding: 15px 20px;
   border-radius: 20px;
@@ -543,22 +615,22 @@
   line-height: 1.5;
 }
 
-.message.user .message-content {
+.skin-hair-care .message.user .message-content {
   background: #e83e8c;
   color: white;
 }
 
-.message.bot .message-content {
+.skin-hair-care .message.bot .message-content {
   background: #e9ecef;
   color: #333;
 }
 
-.loading .typing-indicator {
+.skin-hair-care .loading .typing-indicator {
   display: flex;
   gap: 4px;
 }
 
-.typing-indicator span {
+.skin-hair-care .typing-indicator span {
   width: 8px;
   height: 8px;
   border-radius: 50%;
@@ -566,11 +638,11 @@
   animation: typing 1.4s infinite;
 }
 
-.typing-indicator span:nth-child(2) {
+.skin-hair-care .typing-indicator span:nth-child(2) {
   animation-delay: 0.2s;
 }
 
-.typing-indicator span:nth-child(3) {
+.skin-hair-care .typing-indicator span:nth-child(3) {
   animation-delay: 0.4s;
 }
 
@@ -585,14 +657,15 @@
   }
 }
 
-.chat-input-form {
+/* Chat input */
+.skin-hair-care .chat-input-form {
   padding: 20px;
   border-top: 1px solid #e9ecef;
   display: flex;
   gap: 10px;
 }
 
-.chat-input-form input {
+.skin-hair-care .chat-input-form input {
   flex-grow: 1;
   padding: 12px 20px;
   border: 1px solid #e9ecef;
@@ -601,11 +674,11 @@
   outline: none;
 }
 
-.chat-input-form input:focus {
+.skin-hair-care .chat-input-form input:focus {
   border-color: #e83e8c;
 }
 
-.chat-input-form button {
+.skin-hair-care .chat-input-form button {
   background: #e83e8c;
   color: white;
   border: none;
@@ -616,57 +689,58 @@
   transition: background-color 0.3s ease;
 }
 
-.chat-input-form button:hover:not(:disabled) {
+.skin-hair-care .chat-input-form button:hover:not(:disabled) {
   background: #dc3277;
 }
 
-.chat-input-form button:disabled {
+.skin-hair-care .chat-input-form button:disabled {
   background: #ccc;
   cursor: not-allowed;
 }
 
+/* Responsive tweaks */
 @media (max-width: 768px) {
   .skin-hair-care {
     padding: 15px;
   }
 
-  .care-header h1 {
+  .skin-hair-care .care-header h1 {
     font-size: 2rem;
   }
 
-  .care-nav {
+  .skin-hair-care .care-nav {
     flex-direction: column;
     align-items: center;
   }
 
-  .feature-cards {
+  .skin-hair-care .feature-cards {
     grid-template-columns: 1fr;
   }
 
-  .tips-grid {
+  .skin-hair-care .tips-grid {
     grid-template-columns: 1fr;
   }
 
-  .quiz-container,
-  .results-container {
+  .skin-hair-care .quiz-container,
+  .skin-hair-care .results-container {
     padding: 25px;
   }
 
-  .profile-summary,
-  .recommendations,
-  .remedies-grid {
+  .skin-hair-care .profile-summary,
+  .skin-hair-care .recommendations,
+  .skin-hair-care .remedies-grid {
     grid-template-columns: 1fr;
   }
 
-  .remedy-card {
+  .skin-hair-care .remedy-card {
     padding: 20px;
   }
 
-  .message {
+  .skin-hair-care .message {
     max-width: 90%;
   }
 
-  .chat-container {
+  .skin-hair-care .chat-container {
     height: 500px;
   }
 }
