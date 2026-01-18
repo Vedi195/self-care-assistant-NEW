@@ -1,0 +1,34 @@
+.bottom-nav {
+  display: none;
+}
+
+/* MOBILE ONLY */
+@media (max-width: 580px) {
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ffffff;
+    padding: 12px 22px;
+    border-radius: 28px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 2000;
+    gap: 26px;
+  }
+
+  .bottom-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    font-size: 11px;
+    color: #555;
+  }
+
+  .bottom-item.active {
+    color: #ff6f61;
+    font-weight: 600;
+  }
+}

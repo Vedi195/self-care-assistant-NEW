@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './FavoritesPage.css';
 
+import { motion } from "framer-motion";
+
 const FavoritesPage = () => {
   const [favorites, setFavorites] = useState({
     fashionTips: [],
@@ -37,10 +39,15 @@ const FavoritesPage = () => {
 
   return (
     <div className="favorites-page">
-      <div className="favorites-header">
+      <motion.div
+        className="favorites-header"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
         <h1>❤️ My Favorites</h1>
         <p>Your saved tips and recommendations ({totalFavorites} items)</p>
-      </div>
+      </motion.div>
 
       {totalFavorites === 0 ? (
         <div className="no-favorites">
@@ -51,8 +58,20 @@ const FavoritesPage = () => {
       ) : (
         <div className="favorites-sections">
           {favorites.fashionTips.length > 0 && (
-            <div className="favorites-section">
-              <h2>👗 Fashion Tips</h2>
+            <motion.div
+              className="favorites-section"
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <motion.h2
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >👗 Fashion Tips</motion.h2>
+
               <div className="favorites-grid">
                 {favorites.fashionTips.map((tip, index) => (
                   <div key={index} className="favorite-item">
@@ -66,12 +85,24 @@ const FavoritesPage = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           )}
 
           {favorites.healthTips.length > 0 && (
-            <div className="favorites-section">
-              <h2>🧘‍♀ Health Tips</h2>
+            <motion.div
+              className="favorites-section"
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <motion.h2
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5 }}
+                  viewport={{ once: true }}
+                >🧘‍♀ Health Tips</motion.h2>
+
               <div className="favorites-grid">
                 {favorites.healthTips.map((tip, index) => (
                   <div key={index} className="favorite-item">
@@ -85,12 +116,24 @@ const FavoritesPage = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           )}
 
           {favorites.skinCareTips.length > 0 && (
-            <div className="favorites-section">
-              <h2>💆‍♀ Skin & Hair Care Tips</h2>
+            <motion.div
+              className="favorites-section"
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <motion.h2
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >💆‍♀ Skin & Hair Care Tips</motion.h2>
+
               <div className="favorites-grid">
                 {favorites.skinCareTips.map((tip, index) => (
                   <div key={index} className="favorite-item">
@@ -104,12 +147,24 @@ const FavoritesPage = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           )}
 
           {favorites.dailyRoutineTips.length > 0 && (
-            <div className="favorites-section">
-              <h2>📅 Daily Routine Tips</h2>
+            <motion.div
+              className="favorites-section"
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <motion.h2
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+              >📅 Daily Routine Tips</motion.h2>
+
               <div className="favorites-grid">
                 {favorites.dailyRoutineTips.map((tip, index) => (
                   <div key={index} className="favorite-item">
@@ -123,7 +178,7 @@ const FavoritesPage = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           )}
         </div>
       )}

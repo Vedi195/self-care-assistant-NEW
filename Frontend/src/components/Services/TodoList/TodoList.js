@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './TodoList.css';
 
+import { motion } from "framer-motion";
+
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const [newTodo, setNewTodo] = useState('');
@@ -130,12 +132,24 @@ const TodoList = () => {
   return (
     <div className="todo-list">
       <div className="todo-header">
-        <h1>✅ To-do List</h1>
-        <p>Stay organized and track your daily goals</p>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <h1>✅ To-do List</h1>
+          <p>Stay organized and track your daily goals</p>
+        </motion.div>
       </div>
 
       {/* Stats Dashboard */}
-      <div className="todo-stats">
+      <motion.div
+        className="todo-stats"
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
         <div className="stat-card">
           <div className="stat-number">{stats.total}</div>
           <div className="stat-label">Total Tasks</div>
@@ -152,7 +166,7 @@ const TodoList = () => {
           <div className="stat-number">{stats.total > 0 ? Math.round((stats.completed / stats.total) * 100) : 0}%</div>
           <div className="stat-label">Progress</div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Add Todo Section */}
       <div className="add-todo-section">
@@ -166,18 +180,24 @@ const TodoList = () => {
               placeholder="What needs to be done?"
               className="todo-input"
             />
-            <select
+            <motion.select
               value={priority}
               onChange={(e) => setPriority(e.target.value)}
               className="priority-select"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
               <option value="low">Low Priority</option>
               <option value="medium">Medium Priority</option>
               <option value="high">High Priority</option>
-            </select>
-            <button onClick={addTodo} className="add-btn">
+            </motion.select>
+
+            <motion.button 
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={addTodo} className="add-btn">
               Add Task
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>
@@ -185,35 +205,50 @@ const TodoList = () => {
       {/* Filter Buttons */}
       <div className="filter-section">
         <div className="filter-buttons">
-          <button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className={filter === 'all' ? 'active' : ''}
             onClick={() => setFilter('all')}
           >
             All ({stats.total})
-          </button>
-          <button
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className={filter === 'active' ? 'active' : ''}
             onClick={() => setFilter('active')}
           >
             Active ({stats.active})
-          </button>
-          <button
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             className={filter === 'completed' ? 'active' : ''}
             onClick={() => setFilter('completed')}
           >
             Completed ({stats.completed})
-          </button>
+          </motion.button>
         </div>
         
         {stats.completed > 0 && (
-          <button onClick={clearCompleted} className="clear-completed-btn">
+          <motion.button
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }} 
+            onClick={clearCompleted} className="clear-completed-btn" >
             Clear Completed
-          </button>
+          </motion.button>
         )}
       </div>
 
       {/* Todo List */}
-      <div className="todos-container">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        className="todos-container"
+      >
         {filteredTodos.length === 0 ? (
           <div className="empty-state">
             <div className="empty-icon">
@@ -250,12 +285,14 @@ const TodoList = () => {
               .map((todo) => (
                 <div key={todo.id} className={`todo-item ${todo.completed ? 'completed' : ''}`}>
                   <div className="todo-content">
-                    <button
+                    <motion.button
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
                       className="complete-btn"
                       onClick={() => toggleComplete(todo.id)}
                     >
                       {todo.completed ? '✅' : '⭕'}
-                    </button>
+                    </motion.button>
 
                     <div
                       className="priority-indicator"
@@ -301,27 +338,31 @@ const TodoList = () => {
                   <div className="todo-actions">
                     {editingId === todo.id ? (
                       <>
-                        <button onClick={saveEdit} className="save-btn">
+                        <motion.button onClick={saveEdit} className="save-btn" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                           ✅
-                        </button>
-                        <button onClick={cancelEdit} className="cancel-btn">
+                        </motion.button>
+                        <motion.button onClick={cancelEdit} className="cancel-btn" whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                           ❌
-                        </button>
+                        </motion.button>
                       </>
                     ) : (
                       <>
-                        <button
+                        <motion.button
                           onClick={() => startEdit(todo.id, todo.text)}
                           className="edit-btn"
+                          whileHover={{ scale: 1.03 }} 
+                          whileTap={{ scale: 0.97 }}
                         >
                           ✏️
-                        </button>
-                        <button
+                        </motion.button>
+                        <motion.button
                           onClick={() => deleteTodo(todo.id)}
                           className="delete-btn"
+                          whileHover={{ scale: 1.03 }} 
+                          whileTap={{ scale: 0.97 }}
                         >
                           🗑️
-                        </button>
+                        </motion.button>
                       </>
                     )}
                   </div>
@@ -329,7 +370,7 @@ const TodoList = () => {
               ))}
           </div>
         )}
-      </div>
+      </motion.div>
 
       {/* Progress Bar */}
       {stats.total > 0 && (

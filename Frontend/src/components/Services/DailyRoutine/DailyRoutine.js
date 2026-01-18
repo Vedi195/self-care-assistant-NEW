@@ -3,6 +3,7 @@ import './DailyRoutine.css';
 
 import { FaRegCopy } from 'react-icons/fa';
 import ReactMarkdown from "react-markdown";
+import { motion } from "framer-motion";
 
 const DailyRoutine = () => {
   const [currentView, setCurrentView] = useState('main');
@@ -173,45 +174,76 @@ const DailyRoutine = () => {
     <div className="daily-routine-service">
       <div className="daily-routine">
         <div className="routine-header">
-          <h1>📅 Daily Routine</h1>
-          <p>Plan your perfect day and build productive habits</p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <h1>📅 Daily Routine</h1>
+            <p>Plan your perfect day and build productive habits</p>
+          </motion.div>
         </div>
 
-        <div className="routine-nav">
-          <button 
+        <motion.div
+          className="routine-nav"
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.button
             className={currentView === 'main' ? 'active' : ''}
             onClick={() => setCurrentView('main')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300 }}
           >
             🏠 Overview
-          </button>
-          <button 
+          </motion.button>
+
+          <motion.button
             className={currentView === 'templates' ? 'active' : ''}
             onClick={() => setCurrentView('templates')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             📋 Templates
-          </button>
-          <button 
+          </motion.button>
+
+          <motion.button
             className={currentView === 'notes' ? 'active' : ''}
             onClick={() => setCurrentView('notes')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             📝 My Notes
-          </button>
-          <button 
+          </motion.button>
+          
+          <motion.button
             className={currentView === 'chat' ? 'active' : ''}
             onClick={() => setCurrentView('chat')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             💬 AI Assistant
-          </button>
-        </div>
+          </motion.button>
+          
+        </motion.div>
 
         {currentView === 'main' && (
           <div className="main-view">
             <div className="feature-cards">
-              <div className="feature-card" onClick={() => setCurrentView('templates')}>
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="feature-card" 
+                onClick={() => setCurrentView('templates')}
+              >
                 <div className="feature-icon">📋</div>
                 <h3>Routine Templates</h3>
                 <p>Explore pre-made routines for different parts of your day</p>
-              </div>
+              </motion.div>
               
               <div className="feature-card" onClick={() => setCurrentView('notes')}>
                 <div className="feature-icon">📝</div>
@@ -219,41 +251,78 @@ const DailyRoutine = () => {
                 <p>Create and manage your custom routine tasks and notes</p>
               </div>
 
-              <div className="feature-card" onClick={() => setCurrentView('chat')}>
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="feature-card" 
+                onClick={() => setCurrentView('chat')}
+              >
                 <div className="feature-icon">🤖</div>
                 <h3>AI Routine Coach</h3>
                 <p>Get personalized advice for building better daily habits</p>
-              </div>
+              </motion.div>
             </div>
 
             <div className="daily-tips">
               <h3>💡 Today's Routine Tips</h3>
               <div className="tips-grid">
                 <div className="tip-card">
-                  <div className="tip-icon">⏰</div>
-                  <h4>Time Blocking</h4>
-                  <p>Schedule specific time slots for different activities to stay focused and organized.</p>
-                  <button onClick={() => saveTipToFavorites("Schedule specific time slots for different activities to stay focused and organized.")}>
-                    ❤️ Save
-                  </button>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                  >
+                    <div className="tip-icon">⏰</div>
+                    <h4>Time Blocking</h4>
+                    <p>Schedule specific time slots for different activities to stay focused and organized.</p>
+                    <motion.button
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      onClick={() => saveTipToFavorites("Schedule specific time slots for different activities to stay focused and organized.")}>
+                      ❤️ Save
+                    </motion.button>
+                  </motion.div>
                 </div>
                 
                 <div className="tip-card">
-                  <div className="tip-icon">🎯</div>
-                  <h4>Priority First</h4>
-                  <p>Tackle your most important task when your energy levels are highest.</p>
-                  <button onClick={() => saveTipToFavorites("Tackle your most important task when your energy levels are highest.")}>
-                    ❤️ Save
-                  </button>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                  >
+                    <div className="tip-icon">🎯</div>
+                    <h4>Priority First</h4>
+                    <p>Tackle your most important task when your energy levels are highest.</p>
+                    <motion.button
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      onClick={() => saveTipToFavorites("Tackle your most important task when your energy levels are highest.")}>
+                      ❤️ Save
+                    </motion.button>
+                  </motion.div>
                 </div>
                 
                 <div className="tip-card">
-                  <div className="tip-icon">🔄</div>
-                  <h4>Consistent Sleep</h4>
-                  <p>Go to bed and wake up at the same time every day to regulate your body clock.</p>
-                  <button onClick={() => saveTipToFavorites("Go to bed and wake up at the same time every day to regulate your body clock.")}>
-                    ❤️ Save
-                  </button>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                  >
+                    <div className="tip-icon">🔄</div>
+                    <h4>Consistent Sleep</h4>
+                    <p>Go to bed and wake up at the same time every day to regulate your body clock.</p>
+                    <motion.button
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      onClick={() => saveTipToFavorites("Go to bed and wake up at the same time every day to regulate your body clock.")}>
+                      ❤️ Save
+                    </motion.button>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -262,35 +331,51 @@ const DailyRoutine = () => {
 
         {currentView === 'templates' && (
           <div className="templates-view">
-            <div className="templates-header">
+            <motion.div
+              className="templates-header"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
               <h2>📋 Routine Templates</h2>
               <p>Choose from these proven routine templates to get started</p>
-            </div>
+            </motion.div>
 
             <div className="templates-grid">
               {routineTemplates.map((template, index) => (
                 <div key={index} className="template-card">
-                  <div className="template-header">
-                    <div className="template-icon">{template.icon}</div>
-                    <h3>{template.name}</h3>
-                    <p>{template.description}</p>
-                  </div>
-                  
-                  <div className="template-tasks">
-                    {template.tasks.map((task, taskIndex) => (
-                      <div key={taskIndex} className="template-task">
-                        <span className="task-time">{task.time}</span>
-                        <span className="task-description">{task.task}</span>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <button 
-                    className="use-template-btn"
-                    onClick={() => saveTipToFavorites(`${template.name} Template: ${template.description}`)}
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
                   >
-                    ❤️ Save Template
-                  </button>
+                    <div className="template-header">
+                      <div className="template-icon">{template.icon}</div>
+                      <h3>{template.name}</h3>
+                      <p>{template.description}</p>
+                    </div>
+                  
+                    <div className="template-tasks">
+                      {template.tasks.map((task, taskIndex) => (
+                        <div key={taskIndex} className="template-task">
+                          <span className="task-time">{task.time}</span>
+                          <span className="task-description">{task.task}</span>
+                        </div>
+                      ))}
+                    </div>
+                    
+                    <motion.button 
+                      className="use-template-btn"
+                      onClick={() => saveTipToFavorites(`${template.name} Template: ${template.description}`)}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      ❤️ Save Template
+                    </motion.button>
+                  </motion.div>
                 </div>
               ))}
             </div>
@@ -299,10 +384,16 @@ const DailyRoutine = () => {
 
         {currentView === 'notes' && (
           <div className="notes-view">
-            <div className="notes-header">
+            <motion.div
+              className="notes-header"
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
               <h2>📝 My Routine Notes</h2>
               <p>Create and manage your personal routine tasks and reminders</p>
-            </div>
+            </motion.div>
 
             <div className="add-note-section">
               <div className="add-note-form">
@@ -313,7 +404,13 @@ const DailyRoutine = () => {
                   placeholder="Add a new routine task or note..."
                   onKeyPress={(e) => e.key === 'Enter' && handleAddNote()}
                 />
-                <button onClick={handleAddNote}>Add Note</button>
+                <motion.button
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.97 }}
+                  onClick={handleAddNote}
+                >
+                  Add Note
+                </motion.button>
               </div>
             </div>
 

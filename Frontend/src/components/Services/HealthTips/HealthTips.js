@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './HealthTips.css';
 import Confetti from "react-confetti";
 
+import { motion } from "framer-motion";
+
 const HealthTips = () => {
   const [currentView, setCurrentView] = useState('main');
   const [quizAnswers, setQuizAnswers] = useState({});
@@ -237,29 +239,52 @@ const HealthTips = () => {
     <div className="health-tips-service">
       <div className="health-tips">
         <div className="health-header">
-          <h1>🧘‍♀️ Health Tips</h1>
-          <p>Personalized health guidance for your wellness journey</p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <h1>🧘‍♀️ Health Tips</h1>
+            <p>Personalized health guidance for your wellness journey</p>
+          </motion.div>
         </div>
 
-        <div className="health-nav">
-          <button 
+        <motion.div
+          className="health-nav"
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.button
             className={currentView === 'main' ? 'active' : ''}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300 }}
             onClick={() => setCurrentView('main')}
           >
             🏠 Overview
-          </button>
-          <button 
+          </motion.button>
+
+          <motion.button
             className={currentView === 'quiz' ? 'active' : ''}
             onClick={() => setCurrentView('quiz')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300 }}
           >
             📋 Health Quiz
-          </button>
-          <button 
+          </motion.button>
+
+          <motion.button
             className={currentView === 'yoga' ? 'active' : ''}
             onClick={() => setCurrentView('yoga')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300 }}
           >
             🧘‍♀️ Yoga Guide
-          </button>
+          </motion.button>
+
           {healthProfile && (
             <button 
               className={currentView === 'profile' ? 'active' : ''}
@@ -268,61 +293,115 @@ const HealthTips = () => {
               👤 My Profile
             </button>
           )}
-        </div>
+        </motion.div>
 
         {currentView === 'main' && (
           <div className="main-view">
             <div className="feature-cards">
-              <div className="feature-card" onClick={() => setCurrentView('quiz')}>
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="feature-card" 
+                onClick={() => setCurrentView('quiz')}
+              >
                 <div className="feature-icon">📊</div>
                 <h3>Health Assessment</h3>
                 <p>Get personalized health recommendations based on your profile</p>
-              </div>
+              </motion.div>
               
-              <div className="feature-card" onClick={() => setCurrentView('yoga')}>
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="feature-card" 
+                onClick={() => setCurrentView('yoga')}
+              >
                 <div className="feature-icon">🧘‍♀️</div>
                 <h3>Yoga & Exercise</h3>
                 <p>Discover yoga poses and exercises suitable for your fitness level</p>
-              </div>
+              </motion.div>
             </div>
 
             <div className="daily-tips">
               <h3>💡 Today's Health Tips</h3>
               <div className="tips-grid">
                 <div className="tip-card">
-                  <div className="tip-icon">💧</div>
-                  <h4>Stay Hydrated</h4>
-                  <p>Drink at least 8 glasses of water daily to maintain optimal body function and energy levels.</p>
-                  <button onClick={() => saveTipToFavorites("Drink at least 8 glasses of water daily to maintain optimal body function and energy levels.")}>
-                    ❤️ Save
-                  </button>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                  >
+                    <div className="tip-icon">💧</div>
+                    <h4>Stay Hydrated</h4>
+                    <p>Drink at least 8 glasses of water daily to maintain optimal body function and energy levels.</p>
+                    <motion.button 
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      onClick={() => saveTipToFavorites("Drink at least 8 glasses of water daily to maintain optimal body function and energy levels.")}>
+                      ❤️ Save
+                    </motion.button>
+                  </motion.div>
                 </div>
                 
                 <div className="tip-card">
-                  <div className="tip-icon">🚶‍♀️</div>
-                  <h4>Move More</h4>
-                  <p>Take a 10-minute walk every 2 hours to boost circulation and reduce stress.</p>
-                  <button onClick={() => saveTipToFavorites("Take a 10-minute walk every 2 hours to boost circulation and reduce stress.")}>
-                    ❤️ Save
-                  </button>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                  >
+                    <div className="tip-icon">🚶‍♀️</div>
+                    <h4>Move More</h4>
+                    <p>Take a 10-minute walk every 2 hours to boost circulation and reduce stress.</p>
+                    <motion.button 
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      onClick={() => saveTipToFavorites("Take a 10-minute walk every 2 hours to boost circulation and reduce stress.")}>
+                      ❤️ Save
+                    </motion.button>
+                  </motion.div>
                 </div>
                 
                 <div className="tip-card">
-                  <div className="tip-icon">😴</div>
-                  <h4>Quality Sleep</h4>
-                  <p>Maintain a consistent sleep schedule and aim for 7-9 hours of quality sleep nightly.</p>
-                  <button onClick={() => saveTipToFavorites("Maintain a consistent sleep schedule and aim for 7-9 hours of quality sleep nightly.")}>
-                    ❤️ Save
-                  </button>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                  >
+                    <div className="tip-icon">😴</div>
+                    <h4>Quality Sleep</h4>
+                    <p>Maintain a consistent sleep schedule and aim for 7-9 hours of quality sleep nightly.</p>
+                    <motion.button 
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      onClick={() => saveTipToFavorites("Maintain a consistent sleep schedule and aim for 7-9 hours of quality sleep nightly.")}>
+                      ❤️ Save
+                    </motion.button>
+                  </motion.div>
                 </div>
                 
                 <div className="tip-card">
-                  <div className="tip-icon">🥗</div>
-                  <h4>Balanced Nutrition</h4>
-                  <p>Include colorful fruits and vegetables in every meal for essential vitamins and minerals.</p>
-                  <button onClick={() => saveTipToFavorites("Include colorful fruits and vegetables in every meal for essential vitamins and minerals.")}>
-                    ❤️ Save
-                  </button>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.7 }}
+                  >
+                    <div className="tip-icon">🥗</div>
+                    <h4>Balanced Nutrition</h4>
+                    <p>Include colorful fruits and vegetables in every meal for essential vitamins and minerals.</p>
+                    <motion.button 
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      onClick={() => saveTipToFavorites("Include colorful fruits and vegetables in every meal for essential vitamins and minerals.")}>
+                      ❤️ Save
+                    </motion.button>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -386,30 +465,52 @@ const HealthTips = () => {
             ) : (
               <div className="results-container">
                 <Confetti numberOfPieces={180} gravity={0.25} recycle={false} />
-                <div className="results-header">
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  className="results-header"
+                >
                   <h2>🎉 Your Personalized Health Recommendations</h2>
                   <p>Based on your profile, here are tailored suggestions for your wellness journey</p>
-                </div>
+                </motion.div>
 
                 <div className="recommendations-grid">
                   {recommendations.map((rec, index) => (
                     <div key={index} className="recommendation-card">
-                      <div className="rec-icon">{rec.icon}</div>
-                      <div className="rec-content">
-                        <span className="rec-category">{rec.category}</span>
-                        <h4>{rec.title}</h4>
-                        <p>{rec.description}</p>
-                        <button onClick={() => saveTipToFavorites(rec.description)}>
-                          ❤️ Save
-                        </button>
-                      </div>
+                      <motion.div
+                          initial={{ opacity: 0, y: 30 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.7 }}
+                        >
+                        <div className="rec-icon">{rec.icon}</div>
+                        <div className="rec-content">
+                          <span className="rec-category">{rec.category}</span>
+                          <h4>{rec.title}</h4>
+                          <p>{rec.description}</p>
+                          <motion.button 
+                            whileHover={{ scale: 1.03 }}
+                            whileTap={{ scale: 0.97 }}
+                            onClick={() => saveTipToFavorites(rec.description)}>
+                            ❤️ Save
+                          </motion.button>
+                        </div>
+                      </motion.div>
                     </div>
                   ))}
                 </div>
 
-                <button className="retry-btn" onClick={resetQuiz}>
+                <motion.button
+                  className="retry-btn" 
+                  onClick={resetQuiz}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
                   🔄 Retake Assessment
-                </button>
+                </motion.button>
               </div>
             )}
           </div>
@@ -417,7 +518,13 @@ const HealthTips = () => {
 
         {currentView === 'yoga' && (
           <div className="yoga-view">
-            <div className="yoga-section">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="yoga-section"
+            >
               <h2>🧘‍♀️ Beginner Yoga Poses</h2>
               <p>Perfect for those new to yoga or looking for gentle movements</p>
               <div className="poses-grid">
@@ -431,15 +538,24 @@ const HealthTips = () => {
                     <div className="pose-duration">
                       <strong>Duration:</strong> {pose.duration}
                     </div>
-                    <button onClick={() => saveTipToFavorites(`${pose.name}: ${pose.description}`)}>
+                    <motion.button  
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      onClick={() => saveTipToFavorites(`${pose.name}: ${pose.description}`)}>
                       ❤️ Save
-                    </button>
+                    </motion.button>
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
-            <div className="yoga-section">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="yoga-section"
+            >
               <h2>🌟 Intermediate Yoga Poses</h2>
               <p>For those ready to challenge themselves with more advanced poses</p>
               <div className="poses-grid">
@@ -453,18 +569,27 @@ const HealthTips = () => {
                     <div className="pose-duration">
                       <strong>Duration:</strong> {pose.duration}
                     </div>
-                    <button onClick={() => saveTipToFavorites(`${pose.name}: ${pose.description}`)}>
+                    <motion.button
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      onClick={() => saveTipToFavorites(`${pose.name}: ${pose.description}`)}>
                       ❤️ Save
-                    </button>
+                    </motion.button>
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
         )}
 
         {currentView === 'profile' && healthProfile && (
-          <div className="profile-view">
+          <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="profile-view"
+            >
             <div className="profile-container">
               <h2>👤 Your Health Profile</h2>
               <div className="profile-grid">
@@ -496,11 +621,17 @@ const HealthTips = () => {
                 )}
               </div>
               
-              <button className="update-btn" onClick={() => setCurrentView('quiz')}>
+              <motion.button
+                className="update-btn" 
+                onClick={() => setCurrentView('quiz')}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300 }}
+              >
                 📝 Update Profile
-              </button>
+              </motion.button>
             </div>
-          </div>
+          </motion.div>
         )}
       </div>  
     </div>

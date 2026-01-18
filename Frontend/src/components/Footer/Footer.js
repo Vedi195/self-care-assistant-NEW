@@ -2,10 +2,17 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
+import { motion } from "framer-motion";
+
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="container">
+      <motion.div
+        className="container"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="footer-bottom">
           <div className="footer-bottom-content">
             <p>© {new Date().getFullYear()} Vedika' Self-Care Assistant. All rights reserved.</p>
@@ -16,7 +23,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 };

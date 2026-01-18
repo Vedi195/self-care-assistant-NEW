@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from 'react';
 import './QuoteBox.css'; // Import the CSS file
 
+import { motion } from "framer-motion";
+
 const quotes = [
   "Believe in yourself and all that you are.",
   "Take time to do what makes your soul happy.",
@@ -22,10 +24,17 @@ function QuoteBox() {
   }, []);
 
   return (
-    <div className="quote-container">
-      <h2>💬 Daily Motivation</h2>
-      <p className="quote-text">{quote}</p>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="quote-container">
+        <h2>Daily Motivation</h2>
+        <p className="quote-text">{quote}</p>
+      </div>
+    </motion.div>
   );
 }
 

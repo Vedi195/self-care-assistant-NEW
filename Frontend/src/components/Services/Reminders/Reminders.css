@@ -138,25 +138,22 @@
   justify-content: center;
 }
 
+.form-actions,
 .save-btn {
-  background: #28a745;
-  color: white;
-  border: none;
+  border-color: #28a745 !important;
+  color: #28a745 !important;
   padding: 12px 25px;
   border-radius: 20px;
   cursor: pointer;
   font-weight: 600;
-  transition: background-color 0.3s ease;
+  transition: 0.3s ease;
 }
 
-.save-btn:hover {
-  background: #218838;
-}
 
+.form-actions,
 .cancel-btn {
-  background: #dc3545;
-  color: white;
-  border: none;
+  color: #dc3545 !important;
+  border: #dc3545 !important;
   padding: 12px 25px;
   border-radius: 20px;
   cursor: pointer;
@@ -164,9 +161,6 @@
   transition: background-color 0.3s ease;
 }
 
-.cancel-btn:hover {
-  background: #c82333;
-}
 
 /* Filters */
 .filters-section {

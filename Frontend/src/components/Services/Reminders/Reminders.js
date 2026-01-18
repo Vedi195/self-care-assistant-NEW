@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Reminders.css';
 
+import { motion } from "framer-motion";
+
 const Reminders = () => {
   const [reminders, setReminders] = useState([]);
   const [showAddForm, setShowAddForm] = useState(false);
@@ -188,23 +190,48 @@ const Reminders = () => {
   return (
     <div className="reminders">
       <div className="reminders-header">
-        <h1>⏰ Reminders</h1>
-        <p>Never forget your self-care routines and important tasks</p>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          <h1>⏰ Reminders</h1>
+          <p>Never forget your self-care routines and important tasks</p>
+        </motion.div>
       </div>
 
       {/* Stats */}
       <div className="reminders-stats">
-        <div className="stat-card"><div className="stat-number">{stats.total}</div><div className="stat-label">Total</div></div>
-        <div className="stat-card"><div className="stat-number">{stats.today}</div><div className="stat-label">Today</div></div>
-        <div className="stat-card"><div className="stat-number">{stats.upcoming}</div><div className="stat-label">Upcoming</div></div>
-        <div className="stat-card"><div className="stat-number">{stats.completed}</div><div className="stat-label">Completed</div></div>
+        <div className="stat-card">
+          <div className="stat-number">{stats.total}</div>
+          <div className="stat-label">Total</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-number">{stats.today}</div>
+          <div className="stat-label">Today</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-number">{stats.upcoming}</div>
+          <div className="stat-label">Upcoming</div>
+        </div>
+        <div className="stat-card">
+          <div className="stat-number">{stats.completed}</div>
+          <div className="stat-label">Completed</div>
+        </div>
       </div>
 
       {/* Add Button */}
       <div className="add-reminder-section">
-        <button className="add-reminder-btn" onClick={() => setShowAddForm(!showAddForm)}>
+        <motion.button 
+          className="add-reminder-btn" 
+          onClick={() => setShowAddForm(!showAddForm)}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 300 }}
+
+        >
           {showAddForm ? '❌ Cancel' : '➕ Add New Reminder'}
-        </button>
+        </motion.button>
       </div>
 
       {/* Add Form */}
@@ -286,8 +313,22 @@ const Reminders = () => {
           </div>
 
           <div className="form-actions">
-            <button onClick={addReminder} className="save-btn">✅ Save Reminder</button>
-            <button onClick={() => setShowAddForm(false)} className="cancel-btn">❌ Cancel</button>
+            <motion.button 
+              onClick={addReminder} 
+              className="save-btn"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              ✅ Save Reminder
+            </motion.button>
+            <motion.button 
+              onClick={() => setShowAddForm(false)} 
+              className="cancel-btn"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              ❌ Cancel
+            </motion.button>
           </div>
         </div>
       )}
@@ -295,21 +336,46 @@ const Reminders = () => {
       {/* Filters */}
       <div className="filters-section">
         <div className="filter-buttons">
-          <button className={filter === 'all' ? 'active' : ''} onClick={() => setFilter('all')}>
+          <motion.button 
+            className={filter === 'all' ? 'active' : ''} 
+            onClick={() => setFilter('all')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             All ({stats.total})
-          </button>
-          <button className={filter === 'today' ? 'active' : ''} onClick={() => setFilter('today')}>
+          </motion.button>
+          <motion.button 
+            className={filter === 'today' ? 'active' : ''} 
+            onClick={() => setFilter('today')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             Today ({stats.today})
-          </button>
-          <button className={filter === 'upcoming' ? 'active' : ''} onClick={() => setFilter('upcoming')}>
+          </motion.button>
+          <motion.button 
+            className={filter === 'upcoming' ? 'active' : ''} 
+            onClick={() => setFilter('upcoming')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             Upcoming ({stats.upcoming})
-          </button>
-          <button className={filter === 'overdue' ? 'active' : ''} onClick={() => setFilter('overdue')}>
+          </motion.button>
+          <motion.button 
+            className={filter === 'overdue' ? 'active' : ''} 
+            onClick={() => setFilter('overdue')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             Overdue
-          </button>
-          <button className={filter === 'completed' ? 'active' : ''} onClick={() => setFilter('completed')}>
+          </motion.button>
+          <motion.button 
+            className={filter === 'completed' ? 'active' : ''} 
+            onClick={() => setFilter('completed')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             Completed ({stats.completed})
-          </button>
+          </motion.button>
         </div>
       </div>
 

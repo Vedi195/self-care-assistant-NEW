@@ -16,6 +16,8 @@ code {
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (max-width: 580px) {
+  body {
+    padding-bottom: 90px;
+  }
 }

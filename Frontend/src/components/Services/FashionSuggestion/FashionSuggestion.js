@@ -4,6 +4,7 @@ import './FashionSuggestion.css';
 import Confetti from "react-confetti";
 import { FaRegCopy } from 'react-icons/fa';
 import ReactMarkdown from "react-markdown";
+import { motion } from "framer-motion";
 
 const FashionSuggestion = () => {
   const [currentView, setCurrentView] = useState('main');
@@ -195,67 +196,131 @@ const FashionSuggestion = () => {
     <div className="fashion-service">
       <div className="fashion-suggestion">
         <div className="fashion-header">
-          <h1>👗 Fashion Suggestion</h1>
-          <p>Discover your personal style and get fashion advice</p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <h1>👗 Fashion Suggestion</h1>
+            <p>Discover your personal style and get fashion advice</p>
+          </motion.div>
         </div>
 
-        <div className="fashion-nav">
-          <button
+        <motion.div
+          className="fashion-nav"
+          initial={{ opacity: 0, y: 25 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <motion.button
             className={currentView === 'main' ? 'active' : ''}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ type: "spring", stiffness: 300 }}
             onClick={() => setCurrentView('main')}
           >
             🏠 Overview
-          </button>
-          <button
+          </motion.button>
+
+          <motion.button
             className={currentView === 'quiz' ? 'active' : ''}
             onClick={() => setCurrentView('quiz')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             📋 Style Quiz
-          </button>
-          <button
+          </motion.button>
+
+          <motion.button
             className={currentView === 'chat' ? 'active' : ''}
             onClick={() => setCurrentView('chat')}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             💬 Fashion Chat
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
 
         {currentView === 'main' && (
           <div className="main-view">
             <div className="feature-cards">
-              <div className="feature-card" onClick={() => setCurrentView('quiz')}>
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="feature-card" 
+                onClick={() => setCurrentView('quiz')}
+              >
                 <div className="feature-icon">🎯</div>
                 <h3>Discover Your Style</h3>
                 <p>Take our quiz to find your perfect fashion personality</p>
-              </div>
+              </motion.div>
 
-              <div className="feature-card" onClick={() => setCurrentView('chat')}>
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="feature-card" 
+                onClick={() => setCurrentView('chat')}
+              >
                 <div className="feature-icon">🤖</div>
                 <h3>AI Fashion Assistant</h3>
                 <p>Chat with our AI for personalized outfit recommendations</p>
-              </div>
+              </motion.div>
             </div>
 
             <div className="daily-tips">
               <h3>💡 Today's Fashion Tips</h3>
               <div className="tips-grid">
                 <div className="tip-card">
-                  <p>"Mix textures for visual interest - try pairing a silk blouse with denim or leather."</p>
-                  <button onClick={() => saveTipToFavorites("Mix textures for visual interest - try pairing a silk blouse with denim or leather.")}>
-                    ❤️ Save
-                  </button>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <p>"Mix textures for visual interest - try pairing a silk blouse with denim or leather."</p>
+                    <motion.button 
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      onClick={() => saveTipToFavorites("Mix textures for visual interest - try pairing a silk blouse with denim or leather.")}>
+                      ❤️ Save
+                    </motion.button>
+                  </motion.div>
                 </div>
                 <div className="tip-card">
-                  <p>"The rule of three: stick to maximum 3 colors in one outfit for a cohesive look."</p>
-                  <button onClick={() => saveTipToFavorites("The rule of three: stick to maximum 3 colors in one outfit for a cohesive look.")}>
-                    ❤️ Save
-                  </button>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <p>"The rule of three: stick to maximum 3 colors in one outfit for a cohesive look."</p>
+                    <motion.button 
+                      whileHover={{ scale: 1.03 }}
+                      whileTap={{ scale: 0.97 }}
+                      onClick={() => saveTipToFavorites("The rule of three: stick to maximum 3 colors in one outfit for a cohesive look.")}>
+                      ❤️ Save
+                    </motion.button>
+                  </motion.div>
                 </div>
                 <div className="tip-card">
-                  <p>"When in doubt, add a belt - it defines your waist and elevates any outfit."</p>
-                  <button onClick={() => saveTipToFavorites("When in doubt, add a belt - it defines your waist and elevates any outfit.")}>
-                    ❤️ Save
-                  </button>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5 }}
+                  >
+                      <p>"When in doubt, add a belt - it defines your waist and elevates any outfit."</p>
+                      <motion.button
+                        whileHover={{ scale: 1.03 }}
+                        whileTap={{ scale: 0.97 }} 
+                        onClick={() => saveTipToFavorites("When in doubt, add a belt - it defines your waist and elevates any outfit.")}>
+                        ❤️ Save
+                      </motion.button>
+                  </motion.div>
                 </div>
               </div>
             </div>
@@ -304,18 +369,34 @@ const FashionSuggestion = () => {
                   <div className="tips-list">
                     {styleResult.tips.map((tip, index) => (
                       <div key={index} className="tip-item">
-                        <p>{tip}</p>
-                        <button onClick={() => saveTipToFavorites(tip)}>
-                          ❤️ Save
-                        </button>
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5 }}
+                        >
+                          <p>{tip}</p>
+                          <motion.button
+                            whileHover={{ scale: 1.03 }}
+                            whileTap={{ scale: 0.97 }}
+                            onClick={() => saveTipToFavorites(tip)}>
+                            ❤️ Save
+                          </motion.button>
+                        </motion.div>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                <button className="retry-btn" onClick={resetQuiz}>
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className="retry-btn"
+                  onClick={resetQuiz}
+                >
                   🔄 Take Quiz Again
-                </button>
+                </motion.button>
               </div>
             )}
           </div>
